@@ -1,0 +1,12 @@
+[
+    {
+      "id": 1,
+      "name": "Dennis Le Meance",
+      "health": 50
+    },
+    {
+      "id": 2,
+      "name": "Dame Romain",
+      "health": 85
+    }
+  ]
