@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Shock truncheon",
+        "die": "D12",
+        "damage_type": "electricity"
+    },
+    {
+        "id": 2,
+        "name": "Laser pistol",
+        "die": "D4",
+        "damage_type": "fire"
+    },
+    {
+        "id": 3,
+        "name": "Semi-auto pistol",
+        "die": "D6",
+        "damage_type": "piercing"
+    }
+]

@@ -1,24 +1,14 @@
+from ensurepip import version
+from turtle import title
 from fastapi import FastAPI
-from app.api import api
-
-app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "Fast API in Python"}
+from fastapi.middleware.cors import CORSMiddleware
+from .routers import characters, weapons
 
 
-@app.get("/characters")
-async def read_characters():
-    return api.read_characters()
+app = FastAPI(
+    title="Starfinder API", description="An API for Starfinder data using FastAPI"
+)
 
-
-@app.get("/character/{id}")
-async def character_by_id(id: int):
-    return api.read_character_by_id(id)
-
-
-@app.put("/character/{id}/rest")
-async def rest_character(id: int):
-    return api.rest_character(id)
+app.add_middleware(CORSMiddleware)
+app.include_router(characters.router)
+app.include_router(weapons.router)
