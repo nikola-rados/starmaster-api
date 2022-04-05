@@ -1,11 +1,20 @@
 from enum import Enum
+from random import randint
 
 
-class Die(Enum):
-    DPercent = 100
-    D20 = 20
-    D12 = 12
-    D10 = 10
-    D8 = 8
-    D6 = 6
-    D4 = 4
+class DieOptions(Enum):
+    dPercent = 100
+    d20 = 20
+    d12 = 12
+    d10 = 10
+    d8 = 8
+    d6 = 6
+    d4 = 4
+
+
+class Die:
+    def __init__(self, die: DieOptions):
+        self.die = die
+
+    def roll(self) -> int:
+        return randint(1, self.die.value)

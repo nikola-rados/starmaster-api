@@ -1,6 +1,7 @@
 from enum import Enum
 from app.models.damage_type import DamageType
 from app.models.die import Die
+from typing import List
 
 
 KINETIC_DAMAGE_TYPES = [
@@ -23,12 +24,23 @@ class DamageCategory(Enum):
     ENERGY = "energy"
 
 
+class Bulk(Enum):
+    NEGLIGABLE = 0.0
+    LIGHT = 0.1
+    NORMAL = 1.0
+    HEAVY = 2.0
+    SUPREME = 3.0
+
+
 class Weapon:
-    def __init__(self, id: int, name: str, die: Die, damage_type: DamageType):
+    def __init__(
+        self, id: int, name: str, dice: List[Die], damage_type: DamageType, bulk: Bulk
+    ):
         self.id = id
         self.name = name
-        self.die = die
+        self.dice = dice
         self.damage_type = damage_type
+        self.bulk = bulk
 
     @property
     def damage_category(self) -> DamageCategory:
@@ -40,3 +52,6 @@ class Weapon:
 
         else:
             raise Exception("Unknown damage type")
+
+    def roll_damage(self) -> int:
+        return sum([die.roll() for die in self.dice])

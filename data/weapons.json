@@ -2,19 +2,29 @@
     {
         "id": 1,
         "name": "Shock truncheon",
-        "die": "D12",
-        "damage_type": "electricity"
+        "dice": ["d12"],
+        "damage_type": "electricity",
+        "bulk": "NORMAL"
     },
     {
         "id": 2,
         "name": "Laser pistol",
-        "die": "D4",
-        "damage_type": "fire"
+        "dice": ["d4"],
+        "damage_type": "fire",
+        "bulk": "LIGHT"
     },
     {
         "id": 3,
         "name": "Semi-auto pistol",
-        "die": "D6",
-        "damage_type": "piercing"
+        "dice": ["d6"],
+        "damage_type": "piercing",
+        "bulk": "LIGHT"
+    },
+    {
+        "id": 4,
+        "name": "Starfire sword",
+        "dice": ["d4", "d4"],
+        "damage_type": "fire",
+        "bulk": "NORMAL"
     }
 ]
