@@ -52,6 +52,3 @@ class Weapon:
 
         else:
             raise Exception("Unknown damage type")
-
-    def roll_damage(self) -> int:
-        return sum([die.roll() for die in self.dice])
