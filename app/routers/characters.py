@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.models.ability_scores import AbilityScores
 from app.models.character import Character
 from typing import List
 import json
@@ -10,7 +11,9 @@ def characters_from_json():
     with open("data/characters.json") as stream:
         characters = [
             Character(
-                id=character["id"], name=character["name"], health=character["health"]
+                id=character["id"],
+                name=character["name"],
+                ability_scores=AbilityScores(*character["ability_scores"]),
             )
             for character in json.load(stream)
         ]
