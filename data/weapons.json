@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Shock truncheon",
-        "dice": ["d12"],
+        "dice": [12],
         "damage_type": "electricity",
         "bulk": "NORMAL"
     },
@@ -16,14 +16,14 @@
     {
         "id": 3,
         "name": "Semi-auto pistol",
-        "dice": ["d6"],
+        "dice": [6],
         "damage_type": "piercing",
         "bulk": "LIGHT"
     },
     {
         "id": 4,
         "name": "Starfire sword",
-        "dice": ["d4", "d4"],
+        "dice": [4, 4],
         "damage_type": "fire",
         "bulk": "NORMAL"
     }
