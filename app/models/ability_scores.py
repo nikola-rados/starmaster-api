@@ -1,12 +1,15 @@
+from app.models.ability_score import AbilityScore
+
+
 class AbilityScores:
     def __init__(
         self,
-        strength: int,
-        dexterity: int,
-        constitution: int,
-        intelligence: int,
-        wisdom: int,
-        charisma: int,
+        strength: AbilityScore,
+        dexterity: AbilityScore,
+        constitution: AbilityScore,
+        intelligence: AbilityScore,
+        wisdom: AbilityScore,
+        charisma: AbilityScore,
     ):
         self.strength = strength
         self.dexterity = dexterity

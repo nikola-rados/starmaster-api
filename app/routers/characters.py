@@ -1,18 +1,22 @@
 from fastapi import APIRouter
+from app.models.ability_score import AbilityScore
 from app.models.ability_scores import AbilityScores
 from app.models.character import Character, InMemoryCharacterRepository, NewCharacter
 from typing import List
 import json
 
+from app.models.constant import ABILITY_CATEGORIES
 
-def characters_from_json() -> InMemoryCharacterRepository:
+
+def characters_from_json(ability_categories: List[str]) -> InMemoryCharacterRepository:
     characters = InMemoryCharacterRepository()
     with open("data/characters.json") as stream:
         for character in json.load(stream):
+            ability_scores = [AbilityScore(name, score) for name, score in zip(ability_categories, character["ability_scores"])]
             characters.create(
                 NewCharacter(
                     name=character["name"],
-                    ability_scores=AbilityScores(*character["ability_scores"]),
+                    ability_scores=ability_scores,
                 )
             )
 
@@ -20,7 +24,7 @@ def characters_from_json() -> InMemoryCharacterRepository:
 
 
 router = APIRouter()
-characters = characters_from_json()
+characters = characters_from_json(ABILITY_CATEGORIES)
 
 
 @router.get("/characters")
