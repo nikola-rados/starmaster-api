@@ -1,5 +1,5 @@
 from unicodedata import name
-from app.models.ability_scores import AbilityScores
+from app.models.ability_score import AbilityScore
 from app.models.equipment import Equipment
 import itertools
 from typing import List
@@ -10,7 +10,7 @@ class Character:
         self,
         id: int,
         name: str,
-        ability_scores: AbilityScores,  # , equipment: Equipment
+        ability_scores: List[AbilityScore],  # , equipment: Equipment
     ):
         self.id = id
         self.name = name
@@ -20,7 +20,7 @@ class Character:
 
 class NewCharacter:
     def __init__(
-        self, name: str, ability_scores: AbilityScores  # , equipment: Equipment
+        self, name: str, ability_scores: List[AbilityScore]  # , equipment: Equipment
     ):
         self.name = name
         self.name = name
