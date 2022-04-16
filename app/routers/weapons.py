@@ -14,7 +14,7 @@ def weapons_from_json() -> List[Weapon]:
             Weapon(
                 id=weapon["id"],
                 name=weapon["name"],
-                dice=[Die[die] for die in weapon["dice"]],
+                dice=[Die(sides) for sides in weapon["dice"]],
                 damage_type=DamageType(weapon["damage_type"]),
                 bulk=Bulk[weapon["bulk"]],
             )
